@@ -13,7 +13,6 @@ int DD(int* dia) {
     } while ((*dia) < 1 || (*dia) > 31);
 }
 
-
 int MES(int* mes) {
     do {
         printf("\nDigite o MES do seu nascimento: ");
@@ -30,33 +29,31 @@ int ANO(int* ano) {
 
 int CONFS(int* soma ,int* ano) {
     (*soma) = (ANOATUAL - (*ano));
-    //while(getchar()=='S');
-        //if(getchar() == 'S'){
         if((*soma) >= IDADE){
-            printf("SUA IDADE E: %d\n",(*soma));
-            printf("SEJA BEM VINDO\n");
+            printf("SEJA BEM VINDO\n\n");
             } else {
                 printf("VOCE NAO PODE ENTRAR, POIS SUA IDADE E: %d ANOS \n",(*soma));
-                }
-       /*} else {
-            printf("TENTE NOVAMENTE\n");
-        } */         
-      
-    } 
-/*int CONFN(int* dia, int* mes, int* ano) {
-            if(getchar()=='N');
-            if(getchar() == 'N'){
-                printf("SUA IDADE E: %d\n",(*soma));
-            printf("SEJA BEM VINDO DO NAO\n");
-            } else {
-                printf("VOCE NAO PODE ENTRAR, POIS SUA IDADE E: %d\n",(*soma));
-                }
-               }
-         }*/
+                abort();
+                }       
+    }
+
+int PRODUTOS () {
+
+     printf("DEPARTAMENTO - BEBIDA ALCOOLICA: \n\n");
+
+     printf(" PRODUTO 1: Skol 473ml \n");
+     printf(" PRODUTO 2: Original 473ml \n");
+     printf(" PRODUTO 3: Brahma 473ml \n");
+     printf(" PRODUTO 4: Amstel 473ml \n");
+     printf(" PRODUTO 5: BudWeiser 473ml \n");
+     printf(" PRODUTO 6: Bohemia 473ml \n");
+     printf(" PRODUTO 7: Itaipava 473ml \n");
+     printf(" PRODUTO 8: Schin 473ml \n");
+}
 
 int main() {
 
-    int soma;
+    int soma,Prod;
     int dia,mes,ano;
     char letra;
 
@@ -69,42 +66,8 @@ int main() {
 
     if(!(getchar()=='N')){
             CONFS(&soma, &ano);
+            PRODUTOS(&Prod);
         }
 
-           
-    /*do {
-       
-        scanf("%c",&letra);
-    }
-   
-   
-    //DD(&dia); MES(&mes); ANO(&ano);
-
-    if();
-    if(letra =='N') {
-        DD(&dia); MES(&mes); ANO(&ano);
-        printf("Sua data de nascimento informada esta correta? %d/%d/%d\n",dia,mes,ano);
-       
-    } */
-
-   
-    // {
-       
-    /*else if
-        if(getchar()=='S') {
-       
-     } */
-
-
-
-    /*if {
-        printf("SEJA BEM VINDO DO NAO\n");
-    } else {
-        printf("VOCE NAO PODE ENTRAR, POIS SUA IDADE E: \n");
-    }*/
-
-  
-   
-  
     return 0;
 }
