@@ -8,15 +8,17 @@
 
 int DD(int* dia) {
     do {
+        *dia = ' ';
         printf("Digite o dia do seu nascimento: ");
         scanf("%d", dia);
        if((getchar()=='N'));
-    } while ((*dia) <1 || (*dia) > 31);
+    } while ((*dia) <1 || (*dia) > 31); 
 }
 
 int MES(int* mes) {
     do {
-        printf("\nDigite o MES do seu nascimento: ");
+        *mes = ' ';
+        printf("Digite o MES do seu nascimento: ");
         scanf("%d", mes);
         if((getchar()=='N'));
     } while((*mes) < 1 || (*mes) > 12);
@@ -24,7 +26,8 @@ int MES(int* mes) {
 
 int ANO(int* ano) {
     do {
-        printf("\nDigite o ANO do seu nascimento: ");
+        *ano = ' ';
+        printf("Digite o ANO do seu nascimento: ");
         scanf("%d", ano);
         if((getchar()=='N'));
     } while((*ano) < 1900 || (*ano) > ANOATUAL);
@@ -44,14 +47,14 @@ int PRODUTOS (int cod, int quant,double preco[30],double total[30]) {
 
     printf("\nDEPARTAMENTO - BEBIDA ALCOOLICA: \n\n");
 
-    printf(" PRODUTO 1: Skol 473ml Preco por unidade: %.2lf\n",((preco[1]=4.5)));
-    printf(" PRODUTO 2: Original 350ml Preco por unidade: %.2lf\n",((preco[2]=4)));
-    printf(" PRODUTO 3: Brahma 350ml Preco por unidade: %.2lf\n",((preco[3]=3)));
-    printf(" PRODUTO 4: Amstel 473ml Preco por unidade: %.2lf\n",((preco[4]=5.5)));
-    printf(" PRODUTO 5: BudWeiser 350ml Preco por unidade: %.2lf\n",((preco[5]=4)));
-    printf(" PRODUTO 6: Bohemia 473ml Preco por unidade: %.2lf\n",((preco[6]=4.5)));
-    printf(" PRODUTO 7: Itaipava 473ml Preco por unidade: %.2lf\n",((preco[7]=3)));
-    printf(" PRODUTO 8: Schin 350ml Preco por unidade: %.2lf\n\n",((preco[8]=2.5)));
+    printf(" PRODUTO 1: Skol 473ml Preco por unidade: 4.50 Reais\n");
+    printf(" PRODUTO 2: Original 350ml Preco por unidade: 4 Reais\n");
+    printf(" PRODUTO 3: Brahma 350ml Preco por unidade: 3 Reais \n");
+    printf(" PRODUTO 4: Amstel 473ml Preco por unidade: 5.50 Reais\n");
+    printf(" PRODUTO 5: BudWeiser 350ml Preco por unidade: 4 Reais\n");
+    printf(" PRODUTO 6: Bohemia 473ml Preco por unidade: 4.50 Reais\n");
+    printf(" PRODUTO 7: Itaipava 473ml Preco por unidade: 3 Reais\n");
+    printf(" PRODUTO 8: Schin 350ml Preco por unidade: 2.5 Reais\n\n");
 
     printf("DESCRICAO DA COMPRA\n");
 
@@ -62,8 +65,7 @@ int PRODUTOS (int cod, int quant,double preco[30],double total[30]) {
         printf(" Digite a quantidade: ");
         scanf("%d", &quant);
 
-    } while( cod < 1 || cod > 8);
-
+    } while( cod < 1 || cod >= 8);
 
     switch(cod) {
 
@@ -107,7 +109,7 @@ int PRODUTOS (int cod, int quant,double preco[30],double total[30]) {
     printf("\n CONFIRMANDO: %d unidades de Itaipava 473ml\n\n",quant);
     preco[6] = 3;
     total[6] = preco[6] * quant;
-     break;
+    break;
 
     case 8:
     printf("\n CONFIRMANDO: %d unidades de Schin 350ml\n\n",quant);
@@ -117,30 +119,27 @@ int PRODUTOS (int cod, int quant,double preco[30],double total[30]) {
     }
 }
 
-double COMPRAS(double total[30],double valor[30]) {
+double COMPRAS(double total[30]) {
 
-    /*valor[0] = total[0]+total[1];
-    valor[1] = total[2]+total[3];
-    valor[2] = total[4]+total[5];
-    valor[3] = total[6]+total[7];*/
+    printf(" Total: %.2lf Reais\n",total[0]+total[1]+total[2]+total[3]+total[4]+total[5]+total[6]+total[7]);
 
-    printf(" Total: %.2lf Reais\n",total[0]+total[1]+total[2]+total[3]+total[4]+total[5]+total[6]+total[7]+total[8]);
-        //valor[0]+valor[1]+valor[2]+valor[3]);
-
-}
+    }
 
 int main() {
 
     int soma;
     int dia,mes,ano;
-    char letra;
     int quant,cod;
     double total[30];
-    double valor[30];
     double preco[30];
 
     do {
-        DD(&dia); MES(&mes); ANO(&ano);
+        DD(&dia);
+        printf("\n");
+        MES(&mes);
+        printf("\n");
+        ANO(&ano);
+        printf("\n");
         printf("Sua data de nascimento informada esta correta? %d/%d/%d\n",dia,mes,ano);
         printf("CONFIRME: (S|N): ");
     } while(getchar()=='n');
@@ -155,7 +154,7 @@ int main() {
         if((getchar()== 'n'));
     } while((getchar()=='n'));
 
-    COMPRAS(&total[30], &valor[30]);
+    COMPRAS(&total[30]);
   
     return 0;
 }
