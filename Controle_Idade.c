@@ -33,17 +33,17 @@ int ANO(int* ano) {
     } while((*ano) < 1900 || (*ano) > ANOATUAL);
 }
 
-int CONFS(int* soma ,int* ano) {
-    (*soma) = (ANOATUAL - (*ano));
-        if((*soma) >= IDADE){
+int CONFS(int* somaidade ,int* ano) {
+    (*somaidade) = (ANOATUAL - (*ano));
+        if((*somaidade) >= IDADE){
             printf("\n***** SEJA BEM VINDO *****\n");
             } else {
-                printf("VOCE NAO PODE ENTRAR, POIS SUA IDADE E: %d ANOS \n",(*soma));
+                printf("VOCE NAO PODE ENTRAR, POIS SUA IDADE E: %d ANOS \n",(*somaidade));
                 abort();
                 }    
     }
 
-int PRODUTOS (int cod, int quant,double preco[30],double total[30]) {
+int PRODUTOS (int cod, int quant,double preco[30],double total[30],int i) {
 
     printf("\nDEPARTAMENTO - BEBIDA ALCOOLICA: \n\n");
 
@@ -65,71 +65,86 @@ int PRODUTOS (int cod, int quant,double preco[30],double total[30]) {
         printf(" Digite a quantidade: ");
         scanf("%d", &quant);
 
-    } while( cod < 1 || cod >= 8);
+    } while( cod < 1 || cod > 9);
 
     switch(cod) {
 
     case 1:
-    printf("\n CONFIRMANDO: %d unidades de Skol 473ml\n\n",quant);
+    printf("\n CONFIRMANDO: %d unidades de Skol 473ml\n",quant);
     preco[0] = 4.5;
     total[0] = preco[0] * quant;
+    printf(" TOTAL: %.2lf Reais\n\n",total[0]); 
     break;
 
     case 2:
-    printf("\n CONFIRMANDO: %d unidades de Original 350ml\n\n",quant);
+    printf("\n CONFIRMANDO: %d unidades de Original 350ml\n",quant); 
     preco[1] = 4;
     total[1] = preco[1] * quant;
+    printf(" TOTAL: %.2lf Reais\n\n",total[1]);
     break;
 
     case 3:
-    printf("\n CONFIRMANDO: %d unidades de Brahma 350ml\n\n",quant);
+    printf("\n CONFIRMANDO: %d unidades de Brahma 350ml\n",quant); 
     preco[2] = 3;
     total[2] = preco[2] * quant;
+    printf(" TOTAL: %.2lf Reais\n\n",total[2]);
     break;
 
     case 4:
-    printf("\n CONFIRMANDO: %d unidades de Amstel 473ml\n\n",quant);
+    printf("\n CONFIRMANDO: %d unidades de Amstel 473ml\n",quant);
     preco[3] = 5.5;
     total[3] = preco[3] * quant;
+    printf(" TOTAL: %.2lf Reais\n\n",total[3]); 
     break;
 
     case 5:
-    printf("\n CONFIRMANDO: %d unidades de BudWeiser 350ml\n\n",quant);
+    printf("\n CONFIRMANDO: %d unidades de BudWeiser 350ml\n",quant); 
     preco[4] = 4;
     total[4] = preco[4] * quant;
+    printf(" TOTAL: %.2lf Reais\n\n",total[4]);
     break;
 
     case 6:
-    printf("\n CONFIRMANDO: %d unidades de Bohemia 473ml\n\n",quant);
+    printf("\n CONFIRMANDO: %d unidades de Bohemia 473ml\n",quant); 
     preco[5] = 4.5;
     total[5] = preco[5] * quant;
+    printf(" TOTAL: %.2lf Reais\n\n",total[5]);
     break;
 
     case 7:
-    printf("\n CONFIRMANDO: %d unidades de Itaipava 473ml\n\n",quant);
+    printf("\n CONFIRMANDO: %d unidades de Itaipava 473ml\n",quant); 
     preco[6] = 3;
     total[6] = preco[6] * quant;
+    printf(" TOTAL: %.2lf Reais\n\n",total[6]);
     break;
 
     case 8:
-    printf("\n CONFIRMANDO: %d unidades de Schin 350ml\n\n",quant);
+    printf("\n CONFIRMANDO: %d unidades de Schin 350ml\n",quant); 
     preco[7] = 2.5;
     total[7] = preco[7] * quant;
+    printf(" TOTAL: %.2lf Reais\n\n",total[7]);
     break;
     }
+
 }
 
-double COMPRAS(double total[30]) {
-
-    printf(" Total: %.2lf Reais\n",total[0]+total[1]+total[2]+total[3]+total[4]+total[5]+total[6]+total[7]);
-
+double COMPRAS(double total[30],double somatotal,int i) {
+    somatotal = 0;
+    for(i = 0; i<=7; i++) {
+        printf("total %d: %.2lf\n",i,total[i]);    
     }
+
+    for(i = 0; i <=7; i++) 
+        somatotal = somatotal + total[i];
+    printf(" Total: %.2lf Reais\n",somatotal);
+}
 
 int main() {
 
-    int soma;
+    int somaidade,i;
     int dia,mes,ano;
     int quant,cod;
+    double somatotal;
     double total[30];
     double preco[30];
 
@@ -145,16 +160,16 @@ int main() {
     } while(getchar()=='n');
 
     if(!(getchar()=='n')){
-        CONFS(&soma, &ano);
+        CONFS(&somaidade, &ano);
     }
 
     do {
-        PRODUTOS(cod, quant, &preco[30], &total[30]);
+        PRODUTOS(cod, quant, &preco[30], &total[30],i);
         printf(" Deseja finalizar a compra S/N: ");
         if((getchar()== 'n'));
     } while((getchar()=='n'));
 
-    COMPRAS(&total[30]);
+    COMPRAS(&total[30],somatotal,i);
   
     return 0;
 }
