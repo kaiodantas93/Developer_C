@@ -141,27 +141,47 @@ double COMPRAS(double total[30],double somatotal,int i) {
 
 int main() {
 
-    int somaidade,i;
     int dia,mes,ano;
-    int quant,cod;
-    double somatotal;
-    double total[30];
-    double preco[30];
+    int quant,cod,somaidade,i;
+    double somatotal, total[30], preco[30];
+    char resp2[2] = "n";
+    char resp1[2] = "N";
+    char resp[2] = " ";
+    char res[2] = "S";
+    char res1[2] = "s";
 
     do {
-        DD(&dia);
-        printf("\n");
-        MES(&mes);
-        printf("\n");
-        ANO(&ano);
-        printf("\n");
-        printf("Sua data de nascimento informada esta correta? %d/%d/%d\n",dia,mes,ano);
-        printf("CONFIRME: (S|N): ");
-    } while(getchar()=='n');
 
-    if(!(getchar()=='n')){
+        DD(&dia); printf("\n");
+        MES(&mes); printf("\n");
+        ANO(&ano); printf("\n");
+
+        printf("Sua data de nascimento informada esta correta? %d/%d/%d\n",dia,mes,ano);
+        do {
+            printf("CONFIRME: (S|N): ");
+            scanf("%s",&resp);
+
+            if (strcmp(resp1,resp)) {
+                continue;
+            }
+
+            while(strcmp(res1,resp)) {
+                break;
+            }
+
+            if (strcmp(resp2,resp)) {
+                break;
+            }
+
+            while(strcmp(res,resp)) {
+                break;
+            }
+
+        } while(strcmp(res,resp));
+       
+    } while(strcmp(res,resp));
+
         CONFS(&somaidade, &ano);
-    }
 
     do {
         PRODUTOS(cod, quant, &preco[30], &total[30],i);
