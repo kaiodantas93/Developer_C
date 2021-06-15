@@ -7,12 +7,14 @@
 #define ANOATUAL 2021
 
 int DD(int* dia) {
+    *dia = ' ';
     do {
-        *dia = ' ';
+        printf("%d\n",(*dia));
         printf("Digite o dia do seu nascimento: ");
         scanf("%d", dia);
+        printf("%d",(*dia));
        if((getchar()=='N'));
-    } while ((*dia) <1 || (*dia) > 31); 
+    } while ((*dia) < 1 || (*dia) > 31);
 }
 
 int MES(int* mes) {
@@ -40,7 +42,7 @@ int CONFS(int* somaidade ,int* ano) {
             } else {
                 printf("VOCE NAO PODE ENTRAR, POIS SUA IDADE E: %d ANOS \n",(*somaidade));
                 abort();
-                }    
+                }   
     }
 
 int PRODUTOS (int cod, int quant,double preco[30],double total[30],int i) {
@@ -58,72 +60,161 @@ int PRODUTOS (int cod, int quant,double preco[30],double total[30],int i) {
 
     printf("DESCRICAO DA COMPRA\n");
 
-    do {
+    while (cod < 1 || cod > 9) {
+
         printf("\n Digite o codigo do produto: ");
         scanf("%d", &cod);
+    }
 
-        printf(" Digite a quantidade: ");
+      printf(" Digite a quantidade: ");
         scanf("%d", &quant);
-
-    } while( cod < 1 || cod > 9);
-
+   
     switch(cod) {
 
     case 1:
     printf("\n CONFIRMANDO: %d unidades de Skol 473ml\n",quant);
     preco[0] = 4.5;
-    total[0] = preco[0] * quant;
-    printf(" TOTAL: %.2lf Reais\n\n",total[0]); 
-    break;
+    double total0[10];
+    double soma1 = 0;
+    int contador1 = 0;
+   
+    for(i = 0; i <= contador1; i++) {
+        total0[i] = preco[0] * quant;
+        printf(" TOTAL: %.2lf Reais\n\n",total0[i]);
+        }
+
+    for(i = 0; i <= contador1; i++)
+        total[0] = total[0] + total0[i];
+        contador1++;
+        break; 
 
     case 2:
-    printf("\n CONFIRMANDO: %d unidades de Original 350ml\n",quant); 
+    printf("\n CONFIRMANDO: %d unidades de Original 350ml\n",quant);
     preco[1] = 4;
-    total[1] = preco[1] * quant;
-    printf(" TOTAL: %.2lf Reais\n\n",total[1]);
-    break;
+  
+    double total2[10];
+    double soma2 = 0; 
+    int contador2 = 0;
+    
+    for(i = 0; i <= contador2; i++) {
+        total2[i] = preco[1] * quant;
+        printf(" TOTAL: %.2lf Reais\n\n",total2[i]);
+        }
+
+    for(i = 0; i <= contador2; i++)
+        total[1] = total[1] + total2[i];
+        contador2++;
+        break;
 
     case 3:
-    printf("\n CONFIRMANDO: %d unidades de Brahma 350ml\n",quant); 
+    printf("\n CONFIRMANDO: %d unidades de Brahma 350ml\n",quant);
     preco[2] = 3;
-    total[2] = preco[2] * quant;
-    printf(" TOTAL: %.2lf Reais\n\n",total[2]);
-    break;
+   
+    double total3[10];
+    double soma3 = 0; 
+    int contador3 = 0;
+    
+    for(i = 0; i <= contador3; i++) {
+        total3[i] = preco[2] * quant;
+        printf(" TOTAL: %.2lf Reais\n\n",total3[i]);
+        }
+
+    for(i = 0; i <= contador3; i++)
+        total[2] = total[2] + total3[i];
+        contador3++;
+        break;
 
     case 4:
     printf("\n CONFIRMANDO: %d unidades de Amstel 473ml\n",quant);
     preco[3] = 5.5;
-    total[3] = preco[3] * quant;
-    printf(" TOTAL: %.2lf Reais\n\n",total[3]); 
-    break;
+   
+    double total4[10];
+    double soma4 = 0; 
+    int contador4 = 0;
+    
+    for(i = 0; i <= contador4; i++) {
+        total4[i] = preco[3] * quant;
+        printf(" TOTAL: %.2lf Reais\n\n",total4[i]);
+        }
+
+    for(i = 0; i <= contador4; i++)
+        total[3] = total[3] + total4[i];
+        contador4++;
+        break;
 
     case 5:
-    printf("\n CONFIRMANDO: %d unidades de BudWeiser 350ml\n",quant); 
+    printf("\n CONFIRMANDO: %d unidades de BudWeiser 350ml\n",quant);
     preco[4] = 4;
-    total[4] = preco[4] * quant;
-    printf(" TOTAL: %.2lf Reais\n\n",total[4]);
-    break;
+   
+    double total5[10];
+    double soma5 = 0; 
+    int contador5 = 0;
+    
+    for(i = 0; i <= contador5; i++) {
+        total5[i] = preco[4] * quant;
+        printf(" TOTAL: %.2lf Reais\n\n",total5[i]);
+        }
+
+    for(i = 0; i <= contador5; i++)
+        total[4] = total[4] + total5[i];
+        contador5++;
+        break;
 
     case 6:
-    printf("\n CONFIRMANDO: %d unidades de Bohemia 473ml\n",quant); 
+    printf("\n CONFIRMANDO: %d unidades de Bohemia 473ml\n",quant);
     preco[5] = 4.5;
-    total[5] = preco[5] * quant;
-    printf(" TOTAL: %.2lf Reais\n\n",total[5]);
-    break;
+   
+    double total6[10];
+    double soma6 = 0; 
+    int contador6 = 0;
+    
+    for(i = 0; i <= contador6; i++) {
+        total6[i] = preco[5] * quant;
+        printf(" TOTAL: %.2lf Reais\n\n",total6[i]);
+        }
+
+    for(i = 0; i <= contador6; i++)
+        total[5] = total[5] + total6[i];
+        contador6++;
+        break;
 
     case 7:
-    printf("\n CONFIRMANDO: %d unidades de Itaipava 473ml\n",quant); 
+    printf("\n CONFIRMANDO: %d unidades de Itaipava 473ml\n",quant);
     preco[6] = 3;
-    total[6] = preco[6] * quant;
-    printf(" TOTAL: %.2lf Reais\n\n",total[6]);
-    break;
+   
+    double total7[10];
+    double soma7 = 0; 
+    int contador7 = 0;
+    
+    for(i = 0; i <= contador7; i++) {
+        total7[i] = preco[6] * quant;
+        printf(" TOTAL: %.2lf Reais\n\n",total7[i]);
+        }
+
+    for(i = 0; i <= contador7; i++)
+        total[6] = total[6] + total7[i];
+        contador7++;
+        break;
+
 
     case 8:
-    printf("\n CONFIRMANDO: %d unidades de Schin 350ml\n",quant); 
+    printf("\n CONFIRMANDO: %d unidades de Schin 350ml\n",quant);
     preco[7] = 2.5;
-    total[7] = preco[7] * quant;
-    printf(" TOTAL: %.2lf Reais\n\n",total[7]);
-    break;
+   
+    double total8[10];
+    double soma8 = 0; 
+    int contador8 = 0;
+    
+    for(i = 0; i <= contador8; i++) {
+        total8[i] = preco[7] * quant;
+        printf(" TOTAL: %.2lf Reais\n\n",total8[i]);
+        }
+
+    for(i = 0; i <= contador8; i++)
+        total[7] = total[7] + total8[i];
+        contador8++;
+        break;
+
     }
 
 }
@@ -131,12 +222,12 @@ int PRODUTOS (int cod, int quant,double preco[30],double total[30],int i) {
 double COMPRAS(double total[30],double somatotal,int i) {
     somatotal = 0;
     for(i = 0; i<=7; i++) {
-        printf("total %d: %.2lf\n",i,total[i]);    
+        printf("total %d: %.2lf\n",i,total[i]);   
     }
 
-    for(i = 0; i <=7; i++) 
+    for(i = 0; i <=7; i++)
         somatotal = somatotal + total[i];
-    printf(" Total: %.2lf Reais\n",somatotal);
+    printf(" Soma total: %.2lf Reais\n",somatotal);
 }
 
 int main() {
@@ -178,7 +269,7 @@ int main() {
             }
 
         } while(strcmp(res,resp));
-       
+      
     } while(strcmp(res,resp));
 
         CONFS(&somaidade, &ano);
@@ -186,10 +277,12 @@ int main() {
     do {
         PRODUTOS(cod, quant, &preco[30], &total[30],i);
         printf(" Deseja finalizar a compra S/N: ");
+       
         if((getchar()== 'n'));
     } while((getchar()=='n'));
 
     COMPRAS(&total[30],somatotal,i);
-  
+ 
     return 0;
 }
+
