@@ -298,7 +298,6 @@ int CONFS(int* somaidade ,int* ano) {
                     break;
                 }
 
-                printf("**\n");
             } while(strcmp(res,resp));
 
         } while(strcmp(res,resp));
