@@ -10,7 +10,7 @@
 int DD(int* dia, char* data) {
     int atoi(const char *data);
     do {
-        printf(" Digite o dia do seu nascimento: ");
+        printf(" \n Digite o dia do seu nascimento: ");
         scanf("%s", data);
         (*dia) =atoi(data);
         if((*dia) < 1 || (*dia) > 31) {
@@ -19,7 +19,7 @@ int DD(int* dia, char* data) {
         } else {
             memset(data, 0, sizeof(data));
             }
-    } while ((*dia) < 1 || (*dia) > 31); 
+    } while ((*dia) < 1 || (*dia) > 31);
 }
 
 int MES(int* mes, char* maio) {
@@ -46,16 +46,51 @@ int ANO(int* ano, char* adata) {
 int CONFS(int* somaidade ,int* ano) {
     (*somaidade) = (ANOATUAL - (*ano));
     if((*somaidade) >= IDADE){
-        printf("\n ***** SEJA BEM VINDO *****\n");
+        printf("\n ***** SEJA BEM VINDO *****\n\n");
     } else {
         printf(" VOCE NAO PODE ENTRAR, POIS SUA IDADE E: %d ANOS \n",(*somaidade));
         abort();
     } 
 }
 
-int PRODUTOS (int* cod, int* quant,double preco[30],double total[30],int i) {
+int CODIGO (int* cod, char* codigo) {
+    do {
+        int atoi(const char *codigo);
+        printf(" Digite o codigo do produto: ");
+        scanf("%s", codigo);
+        fflush(stdin);
+        (*cod) =atoi(codigo);
+        } while ((*cod) < 1 || (*cod) > 8);        
+    }
+
+int QUANTIDADE (int* quant, char* quantid) {
+    do {
+        int atoi(const char *quantid);
+        printf(" Digite a quantidade: ");
+        scanf("%s", quantid);
+        fflush(stdin);
+        (*quant) =atoi(quantid);
+        } while ((*quant) < 1 || (*quant) > 1000);
+    }
+
+int DEPARTAMENTO (int* dep, char* codep) {
+        printf(" ESCOLHA O DEPARTAMENTO:\n\n");
+        printf(" 1: BEBIDA ALCOOLICA - (CERVEJA)\n");
+        printf(" 2: BEBIDA ALCOOLICA - (WHISKY)\n");
+        printf(" 3: BEBIDA ALCOOLICA - (GIN)\n\n");
+
+    do {
+        int atoi(const char *codep);
+        printf(" Digite o codigo do departamento: ");
+        scanf("%s", codep);
+        fflush(stdin);
+        (*dep) =atoi(codep);
+        } while ((*dep) < 1 || (*dep) > 3);        
+}
+
+int CERVEJA (int* cod, int* quant, int* dep, int contador[30], double preco[30],double total[30],int i) {
     switch(*cod) {
-        case 1:
+       case 1:
         printf("\n CONFIRMANDO: %d unidades de Skol 473ml\n",(*quant));
         preco[1] = 4.5;
         double total1[10];
@@ -83,8 +118,8 @@ int PRODUTOS (int* cod, int* quant,double preco[30],double total[30],int i) {
 
         for(i = 0; i <= contador2; i++)
             total[2] = total[2] + total2[i];
-        contador2++;
-        break;
+            contador2++;
+            break;
 
         case 3:
         printf("\n CONFIRMANDO: %d unidades de Brahma 350ml\n",(*quant));
@@ -99,8 +134,8 @@ int PRODUTOS (int* cod, int* quant,double preco[30],double total[30],int i) {
 
         for(i = 0; i <= contador3; i++)
             total[3] = total[3] + total3[i];
-        contador3++;
-        break;
+            contador3++;
+            break;
 
         case 4:
         printf("\n CONFIRMANDO: %d unidades de Amstel 473ml\n",(*quant));
@@ -182,26 +217,184 @@ int PRODUTOS (int* cod, int* quant,double preco[30],double total[30],int i) {
         contador8++;
         break;
     }
+    (*dep) = 1;
 }
 
-double COMPRAS(double total[30],double somatotal,int i) {
-    somatotal = 0;
-    for(i = 1; i<=8; i++) {
-        if(total[i] > 1) {
-            printf(" PRODUTO %d: %.2lf Reais\n",i,total[i]);
+int WHISKY (int* cod, int* quant, int* dep, int contador[30], double wpreco[30], double wtotal[30], int j) {
+    switch(*cod) {
+        case 1:
+        printf("\n CONFIRMANDO %d unidades de Red Label 750ml\n",(*quant));
+        wpreco[1] = 65;
+        double wtotal1[10];
+        int contador1 = 0;
+
+        for(j = 0; j <= contador1; j++) {
+            wtotal1[j] = wpreco[1] * (*quant);
+            printf(" TOTAL: %.2lf Reais\n\n",wtotal1[j]);
         }
-    }
+
+        for(j = 0; j <=contador1; j++)
+            wtotal[1] = wtotal[1] + wtotal1[j];
+            contador1++;
+            break;
+
+        case 2:
+        printf("\n CONFIRMANDO %d unidades de Red Label 1000ml\n",(*quant));
+        wpreco[2] = 78;
+        double wtotal2[10];
+        int contador2 = 0;
+
+        for(j = 0; j <= contador2; j++) {
+            wtotal2[j] = wpreco[2] * (*quant);
+            printf(" TOTAL: %.2lf Reais\n\n",wtotal2[j]);
+        }
+
+        for(j = 0; j <=contador2; j++)
+            wtotal[2] = wtotal[2] + wtotal2[j];
+            contador2++;
+            break;
+    
+        case 3:
+        printf("\n CONFIRMANDO %d unidades de Ballantines 750ml\n",(*quant));
+        wpreco[3] = 55;
+        double wtotal3[10];
+        int contador3 = 0;
+
+        for(j = 0; j <= contador3; j++) {
+            wtotal3[j] = wpreco[3] * (*quant);
+            printf(" TOTAL: %.2lf Reais\n\n",wtotal3[j]);
+        }
+
+        for(j = 0; j <=contador3; j++)
+            wtotal[3] = wtotal[3] + wtotal3[j];
+            contador++;
+            break;
+
+        case 4:
+        printf("\n CONFIRMANDO %d unidades de Ballantines 1000ml\n",(*quant));
+        wpreco[4] = 63;
+        double wtotal4[10];
+        int contador4 = 0;
+
+        for(j = 0; j <= contador4; j++) {
+            wtotal4[j] = wpreco[4] + (*quant);
+            printf(" TOTAL: %.2lf\n\n",wtotal4[j]);
+        }
+
+        for (j = 0; j<=contador4; j++) 
+            wtotal[4] = wtotal[4] + wtotal4[j];
+            contador4++;
+            break;
+
+        case 5:
+        printf("\n CONFIRMANDO %d unidades de Jack Daniels Tenessee 1000ml\n",(*quant));
+        wpreco[5] = 130;
+        double wtotal5[10];
+        int contador5 = 0;
+
+        for (j = 0; j<=contador5; j++) {
+            wtotal5[j] = wpreco[5] + (*quant);
+            printf(" TOTAL: %.2lf\n\n",wtotal5[j]);
+        }
+
+        for (j = 0; j<=contador5; j++)
+            wtotal[5] = wtotal[5] + wtotal5[j];
+            contador5++;
+            break;
+
+        case 6:
+        printf("\n CONFIRMANDO %d unidades de Jack Daniels HONEY 1000ml\n",(*quant));
+        wpreco[6] = 139;
+        double wtotal6[10];
+        int contador6 = 0;
+
+        for (j = 0; j<=contador6; j++) {
+            wtotal6[j] = wpreco[6] + (*quant);
+            printf(" TOTAL: %.2lf\n\n",wtotal6[j]);
+        }
+
+        for (j = 0; j<=contador6; j++)
+            wtotal[6] = wtotal[6] + wtotal6[j];
+            contador6++;
+            break;
+
+        case 7:
+        printf("\n CONFIRMANDO %d unidades de Jack Daniels FIRE 1000ml\n",(*quant));
+        wpreco[7] = 139;
+        double wtotal7[10];
+        int contador7 = 0;
+
+        for (j = 0; j<=contador7; j++) {
+            wtotal7[j] = wpreco[7] + (*quant);
+            printf(" TOTAL: %.2lf\n\n",wtotal7[j]);
+        }
+
+        for (j = 0; j <=contador7; j++)
+            wtotal[7] = wtotal[7] + wtotal7[j];
+            contador7++;
+            break;
+
+        case 8:
+        printf("\n CONFIRMANDO %d unidades de Jack Daniels APPLE 1000ml\n",(*quant));
+        wpreco[8] = 145;
+        double wtotal8[10];
+        int contador8 = 0;
+
+        for (j = 0; j<=contador8; j++) {
+            wtotal8[j] = wpreco[8] + (*quant);
+            printf(" TOTAL: %.2lf\n\n",wtotal8[j]);
+        }
+
+        for(j = 0; j<=contador8; j++)
+            wtotal[8] = wtotal[8] + wtotal8[j];
+            contador8++;
+            break;
+        }
+    (*dep) = 2;
+}
+
+double COMPCER(double total[30], double somatotal,int i) {
+    somatotal = 0;
+
+        printf("\n DEPARTAMENTO - BEBIDA ALCOOLICA: (CERVEJA) \n\n");
+
+        for(i = 1; i<=8; i++) {
+            if(total[i] > 1) {
+                printf(" PRODUTO %d: %.2lf Reais\n",i,total[i]);
+                }
+            }
 
     for(i = 1; i <=8; i++)
         somatotal = somatotal + total[i];
-    printf("\n Soma total: %.2lf Reais\n",somatotal);
+        printf("\n Soma total: %.2lf Reais\n",somatotal);
+    }
+
+double COMPWIS(double wtotal[30], double somawis, int j) {
+somawis = 0;
+   
+        printf("\n DEPARTAMENTO - BEBIDA ALCOOLICA: (WHISKY) \n\n");
+
+        for(j = 1; j <=8; j++) {
+            if(wtotal[j] > 1) {
+                printf(" PRODUTO %d: %.2lf Reais\n",j,wtotal[j]);
+                }
+        }
+    
+        for(j = 1; j <=8; j++)
+            somawis = somawis + wtotal[j];
+        printf("\n Soma total: %.2lf Reais\n",somawis);
+        
 }
 
 int main() {
 
-    int dia,mes,ano,cod,somaidade,i,quant;
-    char data,maio,adata,quantid,codigo;
-    double somatotal,total[30],preco[30];
+    int dia,mes,ano,cod,somaidade,i,j,quant,dep,contador[30];
+    char data,maio,adata,quantid,codigo,codep;
+    double somawis,somatotal;
+    double total[30] = {0};
+    double preco[30] = {0};
+    double wpreco[30] = {0};
+    double wtotal[30] = {0};
     char resp2[2] = "n";
     char resp1[2] = "N";
     char resp[2] = " ";
@@ -217,6 +410,7 @@ int main() {
         do {
             printf(" CONFIRME: (S|N): ");
             scanf("%s",&resp);
+            fflush(stdin);
 
             if (strcmp(resp1,resp)) {
                 continue;
@@ -234,9 +428,12 @@ int main() {
 
     CONFS(&somaidade, &ano);
 
+    DEPARTAMENTO(&dep, &codep);
+    memset((&quant), 0,sizeof(quant));
     do {
-
-        printf("\n DEPARTAMENTO - BEBIDA ALCOOLICA: \n\n");
+        switch(dep) {
+        case 1:
+        printf("\n DEPARTAMENTO - BEBIDA ALCOOLICA: (CERVEJA) \n\n");
         printf(" PRODUTO 1: Skol 473ml Preco por unidade: 4.50 Reais\n");
         printf(" PRODUTO 2: Original 350ml Preco por unidade: 4 Reais\n");
         printf(" PRODUTO 3: Brahma 350ml Preco por unidade: 3 Reais \n");
@@ -249,29 +446,42 @@ int main() {
         printf(" DESCRICAO DA COMPRA:\n");
         printf("\n");
 
-        do {
-            int atoi(const char* codigo);
-            printf(" Digite o codigo do produto: ");
-            scanf("%s", &codigo);
-            cod =atoi(&codigo);
-        } while (cod < 1 || cod > 8);
+        CODIGO(&cod,&codigo);
+       
+        QUANTIDADE(&quant,&quantid);
+     
+        CERVEJA(&cod, &quant, &dep, &contador[30], &preco[30], &total[30],i);
+        break;
 
-        do {
-            int atoi(const char* quantid);
-            printf(" Digite a quantidade: ");
-            scanf("%s", &quantid);
-            quant =atoi(&quantid);
-        } while(quant < 1 || quant > 1000);
+        case 2:
+        printf("\n DEPARTAMENTO - BEBIDA ALCOOLICA: (WHISKY) \n\n");
+        printf(" PRODUTO 1: Red Label 750ml Preco por unidade: 65.00 Reais\n");
+        printf(" PRODUTO 2: Red Label 1000ml Preco por unidade: 78.00 Reais\n");
+        printf(" PRODUTO 3: Ballantines 750ml Preco por unidade: 55.00 Reais \n");
+        printf(" PRODUTO 4: Ballantines 1000ml Preco por unidade: 63.00 Reais\n");
+        printf(" PRODUTO 5: Jack Daniels Tenessee 1000ml Preco por unidade: 130.00 Reais\n");
+        printf(" PRODUTO 6: Jack Daniels HONEY 1000ml Preco por unidade: 139.00 Reais\n");
+        printf(" PRODUTO 7: Jack Daniels FIRE 1000ml Preco por unidade: 139.90 Reais\n");
+        printf(" PRODUTO 8: Jack Daniels APPLE 1000ml Preco por unidade: 145.00 Reais\n\n");
 
+        printf(" DESCRICAO DA COMPRA:\n");
+        printf("\n");
 
-        PRODUTOS(&cod, &quant, &preco[30], &total[30],i);
+        CODIGO(&cod,&codigo);
+       
+        QUANTIDADE(&quant,&quantid);
 
-        do {
-            printf(" Deseja finalizar a compra S/N: ");
+        WHISKY(&cod, &quant, &dep, &contador[30], &wpreco[30], &wtotal[30],j);
+        break;
+
+}
+    do {
+          printf(" Deseja finalizar a compra S/N: ");
             scanf("%s",&resp);
+            fflush(stdin);
             printf("\n");
 
-            if (strcmp(resp1,resp)) {
+            if(strcmp(resp1,resp)) {
                 continue;
             }
 
@@ -288,7 +498,10 @@ int main() {
 
     } while(strcmp(res,resp));
 
-    COMPRAS(&total[30], somatotal,i);
+    COMPCER(&total[30], somatotal, i);
+
+    COMPWIS(&wtotal[30], somawis, j);
 
     return 0;
 }
+
