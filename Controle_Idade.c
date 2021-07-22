@@ -10,7 +10,7 @@
 int DD(int* dia, char* data) {
     int atoi(const char *data);
     do {
-        printf(" \n Digite o dia do seu nascimento: ");
+        printf(" Digite o dia do seu nascimento: ");
         scanf("%s", data);
         (*dia) =atoi(data);
         if((*dia) < 1 || (*dia) > 31) {
@@ -350,7 +350,7 @@ int WHISKY (int* cod, int* quant, int* dep, int contador[30], double wpreco[30],
             contador8++;
             break;
         }
-    (*dep) = 2;
+        (*dep) = 2;
 }
 
 double COMPCER(double total[30], double somatotal,int i) {
@@ -383,7 +383,7 @@ somawis = 0;
         for(j = 1; j <=8; j++)
             somawis = somawis + wtotal[j];
         printf("\n Soma total: %.2lf Reais\n",somawis);
-        
+
 }
 
 int main() {
@@ -430,6 +430,7 @@ int main() {
 
     DEPARTAMENTO(&dep, &codep);
     memset((&quant), 0,sizeof(quant));
+
     do {
         switch(dep) {
         case 1:
@@ -473,7 +474,6 @@ int main() {
 
         WHISKY(&cod, &quant, &dep, &contador[30], &wpreco[30], &wtotal[30],j);
         break;
-
 }
     do {
           printf(" Deseja finalizar a compra S/N: ");
@@ -498,9 +498,11 @@ int main() {
 
     } while(strcmp(res,resp));
 
-    COMPCER(&total[30], somatotal, i);
-
-    COMPWIS(&wtotal[30], somawis, j);
+    if(dep == 1) {
+        COMPCER(&total[30], somatotal, i);
+   } else {
+        COMPWIS(&wtotal[30], somawis, j);
+   }
 
     return 0;
 }
