@@ -492,12 +492,12 @@ int main() {
     char data,maio,adata,quantid,codigo,codep;
     double somawis,somatotal,somagin;
 
-    double total[30] = {0};
-    double preco[30] = {0};
-    double wpreco[30] = {0};
-    double wtotal[30] = {0};
-    double gtotal[30] = {0};
-    double gpreco[30] = {0};
+    double total[100];
+    double preco[100];
+    double wpreco[100];
+    double wtotal[100];
+    double gtotal[100];
+    double gpreco[100];
     char resp2[2] = "n";
     char resp1[2] = "N";
     char resp[2] = " ";
@@ -531,10 +531,10 @@ int main() {
 
     CONFS(&somaidade, &ano);
 
-    DEPARTAMENTO(&dep, &codep);
-    memset((&quant), 0,sizeof(quant));
-
     do {
+	DEPARTAMENTO(&dep, &codep);
+	memset((&quant), 0,sizeof(quant));
+
         switch(dep) {
         case 1:
         printf("\n DEPARTAMENTO - BEBIDA ALCOOLICA: (CERVEJA) \n\n");
@@ -619,18 +619,9 @@ int main() {
 
     } while(strcmp(res,resp));
 
-    switch(dep) {
-        case 1:
         COMPCER(&total[30], somatotal, i);
-        break;
-
-        case 2:
         COMPWIS(&wtotal[30], somawis, j);
-        break;
-
-        case 3:
         COMGIN(&gtotal[30], somagin, k);
-   }
 
     return 0;
 }
