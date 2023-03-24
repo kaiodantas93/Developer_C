@@ -1,4 +1,4 @@
-# Developer_C
+#Developer_C
 
 Sera pedido a data de nascimento seguindo pelas regras: dia,mes,ano.
 Sera informado a data digitada pelo usuario, se for confirmada com um S,
@@ -10,5 +10,5 @@ um menu com o codigo do produto e a descricao com os valores.
 Bastar informar o codigo do produto e a quantidade sera disponibilizado a confirmação do produto com a quantidade escolhida e o preco,
 é feita a pergunta se quer finalizar a compra, caso seja confirmada com S, aparecera a somatotal dos produtos.
 
-Desenvolvimento em Progresso- 2.2 "C" - "Kaio Bitencourt"
+Desenvolvimento em Progresso- 23.03 "C" - "Kaio Bitencourt"
 
