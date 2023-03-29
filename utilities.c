@@ -9,26 +9,45 @@
 int main() {
   Cliente cliente;
   char szResposta[16];
-  char szEntradaValidada[16] = "S";
-  char szEntradaProibida[16] = "N";
+  int iRet = 0;
+  int iVerifica = 0;
 
-   do {
-       vVerifAge(&cliente);
+  do {
+    vVerifAge(&cliente);
 
-       printf(" CONFIRME: (S|N): ");
-       scanf("%s",&szResposta);
+    printf(" CONFIRME: (S|N): ");
+    scanf("%s",&szResposta);
   
-        if(strcmp(szEntradaProibida, "N"));
-	  continue;
-        if(strcmp(szResposta, "S"));
-	  break;
-      
-   } while(strcmp(szEntradaValidada,szResposta));
+    if(strcmp(ENTRADAPROIBIDA, szResposta));
+	    continue;
+    if(strcmp(ENTRADAVALIDADA, szResposta));
+	    break;
+
+   } while(strcmp(ENTRADAVALIDADA,szResposta));
 
    if (iValida(&cliente))
-     iDept();
+     iVerifica = 1;
    else
      abort();
 
+   while(iVerifica) {
+
+    iRet = iDept();
+
+   switch (iRet) {
+
+       case 1:
+         vDN_Cerveja();
+         break;
+
+       default:
+         break;
+   }
+
+   if (iDN_ConfirmaTransacao()) {
+     iVerifica = -1;
+     break;
+   }
+ }
    return 0;
 }

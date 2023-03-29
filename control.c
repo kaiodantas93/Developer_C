@@ -26,34 +26,34 @@ void vVerifAge(Cliente *p) {
   memset(&szMes, 0, sizeof(szMes));
   memset(&szAno, 0, sizeof(szAno));
 
- printf("%d/", date.iDay);
- printf("%d/", date.iMes);
- printf("%d\n", date.iYear);
+  printf("%d/", date.iDay);
+  printf("%.0d/", date.iMes);
+  printf("%d\n", date.iYear);
 
- printf("Qual é o seu nome: ");
- scanf("%s", &szNome);
+  printf("Qual é o seu nome: ");
+  scanf("%s", &szNome);
 
- strcpy(p->szName, szNome);
+  strcpy(p->szName, szNome);
 
- do {
-     printf("Digite o dia do seu nascimento: ");
-     scanf("%s",&szDia);
-     p->iDia = atoi(&szDia);
- } while(p->iDia < 1 || p->iDia > 31);
+  do {
+    printf("Digite o dia do seu nascimento: ");
+    scanf("%s",&szDia);
+    p->iDia = atoi(&szDia);
+  } while(p->iDia < 1 || p->iDia > 31);
 
- do {
-     printf("Digite o mes do seu nascimento: ");
-     scanf("%s",&szMes);
-     p->iMes = atol(&szMes);
- } while(p->iMes < 1 || p->iMes > 12);
+  do {
+    printf("Digite o mes do seu nascimento: ");
+    scanf("%s",&szMes);
+    p->iMes = atol(&szMes);
+  } while(p->iMes < 1 || p->iMes > 12);
 
- do {
-     printf("Digite o ano do seu nascimento: ");
-     scanf("%s",&szAno);
-     p->iAno = atol(&szAno);
- } while(p->iAno < 1900 || p->iAno >= date.iYear);
+  do {
+    printf("Digite o ano do seu nascimento: ");
+    scanf("%s",&szAno);
+    p->iAno = atol(&szAno);
+  } while(p->iAno < 1900 || p->iAno >= date.iYear);
 
- printf("%s sua data de nascimento informada esta correta? %d/%d/%d\n", p->szName, p->iDia, p->iMes,p->iAno);
+  printf("%s sua data de nascimento informada esta correta? %d/%d/%d\n", p->szName, p->iDia, p->iMes,p->iAno);
 }
 
 int iDept(void) {
@@ -68,26 +68,95 @@ int iDept(void) {
   printf(" 3: BEBIDA ALCOOLICA - (GIN)\n\n");
 
   do {
-      printf(" Digite o codigo do departamento: ");
-      scanf("%s", &szCodigo);
-      fflush(stdin);
-      iRet = atoi(&szCodigo);
-  } while ((iRet) < 1 || (iRet) > 3);
+    printf(" Digite o codigo do departamento: ");
+    scanf("%s", &szCodigo);
+    fflush(stdin);
+    iRet = atoi(&szCodigo);
+  } while (iRet < 1 || iRet > 3);
 
 }
 
+int iCodigo(void) {
+  int iRet = 0;
+  char szCodigo;
+
+  memset(&szCodigo, 0 ,sizeof(szCodigo));
+
+	do {
+    printf(" Digite o codigo do produto: ");
+    scanf("%s", &szCodigo);
+    fflush(stdin);
+    iRet = atoi(&szCodigo);
+	} while (iRet < 1 || iRet > 8);
+}
+
+int iQuant(int iCount) {
+  int iRet = 0;
+  char szQuant;
+
+  memset(&szQuant, 0 ,sizeof(szQuant));
+
+	do {
+    printf(" Digite a quantidade: ");
+    scanf("%s",&szQuant);
+    fflush(stdin);
+    iRet = atoi(&szQuant);
+  } while (iRet < 1 || iRet > iCount);
+}
+
 int iValida(Cliente *k) {
- int iVerifica = 0;
- int iRet = 0;
+  int iVerifica = 0;
+  int iRet = 0;
 
-   iVerifica = date.iYear - k->iAno;
+  iVerifica = date.iYear - k->iAno;
 
-   if(iVerifica >= IDADE) {
-     printf("\n ***** SEJA BEM VINDO %s *****\n\n", k->szName);
-     iRet = 1;
-   }
-    else 
-     printf(" VOCE NAO PODE ENTRAR, POIS SUA IDADE E: %d ANOS \n",iVerifica);
+  if(date.iMes < k->iMes ||
+     (date.iMes == k->iMes && date.iDay < k->iDia))
+    iVerifica--;
+
+  if(iVerifica >= IDADE) {
+    printf("\n ***** SEJA BEM VINDO %s *****\n\n", k->szName);
+    iRet = 1;
+  }
+  else
+    printf(" VOCE NAO PODE ENTRAR, POIS SUA IDADE E: %d ANOS \n",iVerifica);
 
   return iRet;
+}
+
+void vDN_Cerveja(void) {
+  EnumQuant iCont = CERVEJA;
+
+  printf("\n DEPARTAMENTO - CERVEJA \n\n");
+
+  printf(" PRODUTO 1: Skol 473ml Preco por unidade: 4.50 Reais\n");
+  printf(" PRODUTO 2: Original 350ml Preco por unidade: 4 Reais\n");
+  printf(" PRODUTO 3: Brahma 350ml Preco por unidade: 3 Reais \n");
+  printf(" PRODUTO 4: Amstel 473ml Preco por unidade: 5.50 Reais\n");
+  printf(" PRODUTO 5: BudWeiser 350ml Preco por unidade: 4 Reais\n");
+  printf(" PRODUTO 6: Bohemia 473ml Preco por unidade: 4.50 Reais\n");
+  printf(" PRODUTO 7: Itaipava 473ml Preco por unidade: 3 Reais\n");
+  printf(" PRODUTO 8: Schin 350ml Preco por unidade: 2.5 Reais\n\n");
+
+  iCodigo();
+  iQuant(iCont);
+
+}
+
+int iDN_ConfirmaTransacao(void) {
+  char szResposta[16];
+  int iRet = 0;
+
+  printf(" DESEJA FINALIZAR A VENDA: ");
+  printf(" CONFIRME: (S|N): ");
+  scanf("%s",&szResposta);
+
+  iRet = strcmp(ENTRADAVALIDADA, szResposta);
+
+  if(iRet == 0)
+    iRet = 1;
+  else
+    iRet = 0;
+
+   return iRet;
 }
