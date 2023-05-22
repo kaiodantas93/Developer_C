@@ -126,28 +126,69 @@ int iValida(Cliente *k) {
 
 void vDN_Cerveja(void) {
   EnumQuant iCont = CERVEJA;
+  EnumVariedade_Cerveja iRet;
+  EnumPreco iPreco[32];
+  Total myTotal;
+  Total *c = &myTotal;
+  int iContador = 0;
+  int iCount_Cerveja = 0;
+  int i = 0;
+  int j = 0;
+  int k = 0;
+  int iTotAcumula[32];
 
   printf("\n DEPARTAMENTO - CERVEJA \n\n");
 
-  printf(" PRODUTO 1: Skol 473ml Preco por unidade: 4.50 Reais\n");
-  printf(" PRODUTO 2: Original 350ml Preco por unidade: 4 Reais\n");
-  printf(" PRODUTO 3: Brahma 350ml Preco por unidade: 3 Reais \n");
-  printf(" PRODUTO 4: Amstel 473ml Preco por unidade: 5.50 Reais\n");
-  printf(" PRODUTO 5: BudWeiser 350ml Preco por unidade: 4 Reais\n");
-  printf(" PRODUTO 6: Bohemia 473ml Preco por unidade: 4.50 Reais\n");
-  printf(" PRODUTO 7: Itaipava 473ml Preco por unidade: 3 Reais\n");
-  printf(" PRODUTO 8: Schin 350ml Preco por unidade: 2.5 Reais\n\n");
+  printf(" PRODUTO 1: Skol 473ml Preco por unidade: %d Reais\n", SKOL_PRICE);
+  printf(" PRODUTO 2: Original 350ml Preco por unidade: %d Reais\n", ORIGINAL_PRICE);
+  printf(" PRODUTO 3: Brahma 350ml Preco por unidade: %d Reais \n", BRAHMA_PRICE);
+  printf(" PRODUTO 4: Amstel 473ml Preco por unidade: %d Reais\n", AMSTEL_PRICE);
+  printf(" PRODUTO 5: BudWeiser 350ml Preco por unidade: %d Reais\n", BUDWEISER_PRICE);
+  printf(" PRODUTO 6: Bohemia 473ml Preco por unidade: %d Reais\n", BOHEMIA_PRICE);
+  printf(" PRODUTO 7: Itaipava 473ml Preco por unidade: %d Reais\n", ITAIPAVA_PRICE);
+  printf(" PRODUTO 8: Schin 350ml Preco por unidade: %d Reais\n\n", SCHIN_PRICE);
 
-  iCodigo();
-  iQuant(iCont);
+  iRet = iCodigo();
+  iContador = iQuant(iCont);
 
+  switch(iRet) {
+    case SKOL:
+      printf("\n CONFIRMANDO: %d unidades de Skol 350ml\n", iContador);
+      iPreco[i] = SKOL_PRICE;
+
+      for(i = 0; i <= iCount_Cerveja; i++) {
+        iTotAcumula[i] = iPreco[i] * iContador;
+        printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
+      }
+
+      for(i = 0; i <= iCount_Cerveja; i++) {
+        c->iCerveja[i] = iTotAcumula[i];
+        iCount_Cerveja++;
+      }
+      break;
+
+    case ORIGINAL:
+      printf("\n CONFIRMANDO: %d unidades de Original 350ml\n", iContador);
+      iPreco[i] = ORIGINAL_PRICE;
+
+      for(i = 0; i <= iCount_Cerveja; i++) {
+        iTotAcumula[i] = iPreco[i] * iContador;
+        printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
+      }
+
+      for(i = 0; i <= iCount_Cerveja; i++) {
+        c->iCerveja[i] += iTotAcumula[i];
+        iCount_Cerveja++;
+        break;
+      }
+   }
 }
 
 int iDN_ConfirmaTransacao(void) {
   char szResposta[16];
   int iRet = 0;
 
-  printf(" DESEJA FINALIZAR A VENDA: ");
+  printf(" DESEJA FINALIZAR A VENDA: \n");
   printf(" CONFIRME: (S|N): ");
   scanf("%s",&szResposta);
 
@@ -159,4 +200,21 @@ int iDN_ConfirmaTransacao(void) {
     iRet = 0;
 
    return iRet;
+}
+
+int iDN_TransacaoCerveja(Total *c) {
+	int iSoma = 0;
+  int j = 0;
+
+	printf("\n DEPARTAMENTO - BEBIDA ALCOOLICA: (CERVEJA) \n\n");
+
+  for(j = 1; j<=8; j++) {
+    if(c->iCerveja[j] > 1) {
+      printf(" PRODUTO %d: %.2lf Reais\n",j,c->iCerveja[j]);
+    }
+  }
+
+  for(j = 1; j <=8; j++)
+    iSoma += c->iCerveja[j];
+  printf("\n Soma total: %.2lf Reais\n",iSoma);
 }

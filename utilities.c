@@ -8,9 +8,11 @@
 
 int main() {
   Cliente cliente;
+  Total total;
   char szResposta[16];
   int iRet = 0;
   int iVerifica = 0;
+  int iCCerveja = 0;
 
   do {
     vVerifAge(&cliente);
@@ -38,6 +40,7 @@ int main() {
 
        case 1:
          vDN_Cerveja();
+         iCCerveja = 1;
          break;
 
        default:
@@ -48,6 +51,12 @@ int main() {
      iVerifica = -1;
      break;
    }
- }
+
+}
+   if (iCCerveja) {
+     printf("\n DEPARTAMENTO - BEBIDA ALCOOLICA: (CERVEJA) \n\n");
+     iDN_TransacaoCerveja(&total);
+   }
+
    return 0;
 }
