@@ -8,6 +8,7 @@
 
 int main() {
   Cliente cliente;
+  char szResposta;
   Total total;
   char szResposta[16];
   int iRet = 0;
@@ -19,6 +20,13 @@ int main() {
 
     printf(" CONFIRME: (S|N): ");
     scanf("%s",&szResposta);
+ 
+    if(ENTRADAPROIBIDA == szResposta);
+     continue;
+    if(ENTRADAVALIDADA == szResposta);
+     break;
+
+   } while(ENTRADAVALIDADA == szResposta);
   
     if(strcmp(ENTRADAPROIBIDA, szResposta));
 	    continue;
@@ -32,6 +40,41 @@ int main() {
    else
      abort();
 
+  while(iVerifica) {
+
+    iRet = iDept();
+
+    switch (iRet) {
+
+      case 1:
+        vDN_Cerveja();
+        iCCerveja = 1;
+        break;
+
+      case 2:
+        vDN_Cerveja();
+        iCCerveja = 1;
+        break;
+
+      case 3:
+        vDN_Cerveja();
+        iCCerveja = 1;
+        break;
+
+      default:
+        break;
+    }
+
+    /*if (vDN_ConfirmaTransacao()) {
+      iVerifica = -1;
+      break;
+    }*/
+
+  }
+
+  if (iCCerveja) {
+    printf("\n DEPARTAMENTO - BEBIDA ALCOOLICA: (CERVEJA) \n\n");
+  }
    while(iVerifica) {
 
     iRet = iDept();
@@ -60,3 +103,4 @@ int main() {
 
    return 0;
 }
+

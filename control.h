@@ -5,8 +5,8 @@
 #include <time.h>
 
 #define IDADE 18
-#define ENTRADAPROIBIDA "N"
-#define ENTRADAVALIDADA "S"
+#define ENTRADAPROIBIDA 'N'
+#define ENTRADAVALIDADA 'S'
 
 typedef struct DATA {
 int iDay;
@@ -59,8 +59,11 @@ typedef enum {
 int iValida(Cliente *k);
 void vVerifAge(Cliente *p);
 int iDept(void);
+<<<<<<< HEAD
+int iDN_TipoEscolha(void);
+void vDN_Cerveja(void);
+void vDN_TransacaoCerveja(void);
 int iQuant(int iCount);
 int iCodigo(void);
 void vDN_Cerveja(void);
 int iDN_ConfirmaTransacao(void);
-int iDN_TransacaoCerveja(Total *c);

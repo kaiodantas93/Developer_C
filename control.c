@@ -124,6 +124,40 @@ int iValida(Cliente *k) {
   return iRet;
 }
 
+<<<<<<< HEAD
+int iDN_Codigo(void) {
+  char szCodigo[32];
+  int iRet = 0;
+
+  memset(szCodigo, 0, sizeof(&szCodigo));
+
+  do {
+    printf(" Digite o codigo do produto: ");
+    scanf("%s", &szCodigo);
+    fflush(stdin);
+    iRet = atoi(szCodigo);
+  } while (iRet < 1 || iRet > 8);
+
+  return iRet;
+}
+
+int iDN_Quant(void) {
+  char szQuant[32];
+  int iRet = 0;
+
+  memset(szQuant, 0, sizeof(&szQuant));
+  iRet = 0;
+
+  do {
+    printf(" Digite a quantidade: ");
+    scanf("%s",&szQuant);
+    fflush(stdin);
+    iRet = atoi(szQuant);
+  } while (iRet < 1 || iRet > 1000);
+
+  return iRet;
+}
+
 void vDN_Cerveja(void) {
   EnumQuant iCont = CERVEJA;
   EnumVariedade_Cerveja iRet;
