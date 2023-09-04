@@ -91,3 +91,53 @@ int iValida(Cliente *k) {
 
   return iRet;
 }
+
+int iDN_Codigo(void) {
+  char szCodigo[32];
+  int iRet = 0;
+
+  memset(szCodigo, 0, sizeof(&szCodigo));
+
+  do {
+    printf(" Digite o codigo do produto: ");
+    scanf("%s", &szCodigo);
+    fflush(stdin);
+    iRet = atoi(szCodigo);
+  } while (iRet < 1 || iRet > 8);
+
+  return iRet;
+}
+
+int iDN_Quant(void) {
+  char szQuant[32];
+  int iRet = 0;
+
+  memset(szQuant, 0, sizeof(&szQuant));
+  iRet = 0;
+
+  do {
+    printf(" Digite a quantidade: ");
+    scanf("%s",&szQuant);
+    fflush(stdin);
+    iRet = atoi(szQuant);
+  } while (iRet < 1 || iRet > 1000);
+
+  return iRet;
+}
+
+void vDN_Cerveja(void) {
+
+  printf("\n DEPARTAMENTO - BEBIDA ALCOOLICA: (CERVEJA) \n\n");
+  printf(" PRODUTO 1: Skol 473ml Preco por unidade: 4.50 Reais\n");
+  printf(" PRODUTO 2: Original 350ml Preco por unidade: 4 Reais\n");
+  printf(" PRODUTO 3: Brahma 350ml Preco por unidade: 3 Reais \n");
+  printf(" PRODUTO 4: Amstel 473ml Preco por unidade: 5.50 Reais\n");
+  printf(" PRODUTO 5: BudWeiser 350ml Preco por unidade: 4 Reais\n");
+  printf(" PRODUTO 6: Bohemia 473ml Preco por unidade: 4.50 Reais\n");
+  printf(" PRODUTO 7: Itaipava 473ml Preco por unidade: 3 Reais\n");
+
+  printf(" DESCRICAO DA COMPRA:\n");
+  printf("\n");
+
+  iDN_Codigo();
+}

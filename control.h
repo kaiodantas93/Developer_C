@@ -5,6 +5,8 @@
 #include <time.h>
 
 #define IDADE 18
+#define ENTRADAPROIBIDA 'N'
+#define ENTRADAVALIDADA 'S'
 
 typedef struct DATA {
 int iDay;
@@ -23,3 +25,6 @@ typedef struct {
 int iValida(Cliente *k);
 void vVerifAge(Cliente *p);
 int iDept(void);
+int iDN_TipoEscolha(void);
+void vDN_Cerveja(void);
+void vDN_TransacaoCerveja(void);
