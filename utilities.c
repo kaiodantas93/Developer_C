@@ -9,6 +9,8 @@
 int main() {
   Cliente cliente;
   char szResposta;
+  Total total;
+  char szResposta[16];
   int iRet = 0;
   int iVerifica = 0;
   int iCCerveja = 0;
@@ -25,6 +27,13 @@ int main() {
      break;
 
    } while(ENTRADAVALIDADA == szResposta);
+  
+    if(strcmp(ENTRADAPROIBIDA, szResposta));
+	    continue;
+    if(strcmp(ENTRADAVALIDADA, szResposta));
+	    break;
+
+   } while(strcmp(ENTRADAVALIDADA,szResposta));
 
    if (iValida(&cliente))
      iVerifica = 1;
@@ -66,6 +75,31 @@ int main() {
   if (iCCerveja) {
     printf("\n DEPARTAMENTO - BEBIDA ALCOOLICA: (CERVEJA) \n\n");
   }
+   while(iVerifica) {
+
+    iRet = iDept();
+
+   switch (iRet) {
+
+       case 1:
+         vDN_Cerveja();
+         iCCerveja = 1;
+         break;
+
+       default:
+         break;
+   }
+
+   if (iDN_ConfirmaTransacao()) {
+     iVerifica = -1;
+     break;
+   }
+
+}
+   if (iCCerveja) {
+     printf("\n DEPARTAMENTO - BEBIDA ALCOOLICA: (CERVEJA) \n\n");
+     iDN_TransacaoCerveja(&total);
+   }
 
    return 0;
 }
