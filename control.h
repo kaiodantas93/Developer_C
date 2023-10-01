@@ -128,3 +128,4 @@ int iDN_ConfirmaTransacao(void);
 int iDN_TransacaoCerveja(Total *iBebidaCerveja);
 int iDN_TransacaoWhisky(Total *iBebidaWhisky);
 int iDN_TransacaoGin(Total *iBebidaGin);
+int iDN_FinalTransacao(Total *total);

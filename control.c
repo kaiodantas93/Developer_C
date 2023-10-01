@@ -167,8 +167,6 @@ void vDN_Cerveja(Total *iBebidaCerveja) {
   int iContador = 0;
   int iCount_Cerveja = 0;
   int i = 0;
-  int j = 0;
-  int k = 0;
   int iTotAcumula[32];
 
   printf("\n DEPARTAMENTO - CERVEJA \n\n");
@@ -193,7 +191,9 @@ void vDN_Cerveja(Total *iBebidaCerveja) {
       for(i = 0; i <= iCount_Cerveja; i++) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
-       iBebidaCerveja->iCerveja.iValor_Cerveja[giCerveja] = iTotAcumula[i];
+        iBebidaCerveja->iCerveja.iValor_Cerveja[giCerveja] = iTotAcumula[i];
+        iBebidaCerveja->iCerveja.iQuantidade[giCerveja] = iContador;
+        strcpy(iBebidaCerveja->iCerveja.szCerveja[giCerveja], "Skol");
       }
 
       iCount_Cerveja++;
@@ -208,6 +208,8 @@ void vDN_Cerveja(Total *iBebidaCerveja) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
         iBebidaCerveja->iCerveja.iValor_Cerveja[giCerveja] += iTotAcumula[i];
+        iBebidaCerveja->iCerveja.iQuantidade[giCerveja] = iContador;
+        strcpy(iBebidaCerveja->iCerveja.szCerveja[giCerveja], "Original");
       }
       
       iCount_Cerveja++;
@@ -222,6 +224,8 @@ void vDN_Cerveja(Total *iBebidaCerveja) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
         iBebidaCerveja->iCerveja.iValor_Cerveja[giCerveja] += iTotAcumula[i];
+        iBebidaCerveja->iCerveja.iQuantidade[giCerveja] = iContador;
+        strcpy(iBebidaCerveja->iCerveja.szCerveja[giCerveja], "Brahma");
       }
       
       iCount_Cerveja++;
@@ -236,6 +240,8 @@ void vDN_Cerveja(Total *iBebidaCerveja) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
        iBebidaCerveja->iCerveja.iValor_Cerveja[giCerveja] += iTotAcumula[i];
+       iBebidaCerveja->iCerveja.iQuantidade[giCerveja] = iContador;
+        strcpy(iBebidaCerveja->iCerveja.szCerveja[giCerveja], "Amstel");
       }
       
       iCount_Cerveja++;
@@ -250,6 +256,8 @@ void vDN_Cerveja(Total *iBebidaCerveja) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
         iBebidaCerveja->iCerveja.iValor_Cerveja[giCerveja] += iTotAcumula[i];
+        iBebidaCerveja->iCerveja.iQuantidade[giCerveja] = iContador;
+        strcpy(iBebidaCerveja->iCerveja.szCerveja[giCerveja], "BudWeiser");
       }
       
       iCount_Cerveja++;
@@ -264,6 +272,8 @@ void vDN_Cerveja(Total *iBebidaCerveja) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
         iBebidaCerveja->iCerveja.iValor_Cerveja[giCerveja] += iTotAcumula[i];
+        iBebidaCerveja->iCerveja.iQuantidade[giCerveja] = iContador;
+        strcpy(iBebidaCerveja->iCerveja.szCerveja[giCerveja], " Bohemia");
       }
       
       iCount_Cerveja++;
@@ -278,6 +288,8 @@ void vDN_Cerveja(Total *iBebidaCerveja) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
         iBebidaCerveja->iCerveja.iValor_Cerveja[giCerveja] += iTotAcumula[i];
+        iBebidaCerveja->iCerveja.iQuantidade[giCerveja] = iContador;
+        strcpy(iBebidaCerveja->iCerveja.szCerveja[giCerveja], "Itaipava");
       }
       
       iCount_Cerveja++;
@@ -292,6 +304,8 @@ void vDN_Cerveja(Total *iBebidaCerveja) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
         iBebidaCerveja->iCerveja.iValor_Cerveja[giCerveja] += iTotAcumula[i];
+        iBebidaCerveja->iCerveja.iQuantidade[giCerveja] = iContador;
+        strcpy(iBebidaCerveja->iCerveja.szCerveja[giCerveja], "Schin");
       }
       
       iCount_Cerveja++;
@@ -333,8 +347,10 @@ void vDN_Whisky(Total *iBebidaWhisky) {
       for(i = 0; i <= iCount_Whisky; i++) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
-       iBebidaWhisky->iWhisky.iValor_Whisky[giWhisky] = iTotAcumula[i];
-      }
+        iBebidaWhisky->iWhisky.iValor_Whisky[giWhisky] = iTotAcumula[i];
+        iBebidaWhisky->iWhisky.iQuantidade[giWhisky] = iContador;
+        strcpy(iBebidaWhisky->iWhisky.szWhisky[giWhisky], "Red Label");
+      } 
 
       iCount_Whisky++;
       giWhisky++;
@@ -348,6 +364,8 @@ void vDN_Whisky(Total *iBebidaWhisky) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
        iBebidaWhisky->iWhisky.iValor_Whisky[giWhisky] += iTotAcumula[i];
+        iBebidaWhisky->iWhisky.iQuantidade[giWhisky] = iContador;
+        strcpy(iBebidaWhisky->iWhisky.szWhisky[giWhisky], "Red Label 1L");
       }
       
       iCount_Whisky++;
@@ -362,6 +380,8 @@ void vDN_Whisky(Total *iBebidaWhisky) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
         iBebidaWhisky->iWhisky.iValor_Whisky[giWhisky] += iTotAcumula[i];
+         iBebidaWhisky->iWhisky.iQuantidade[giWhisky] = iContador;
+        strcpy(iBebidaWhisky->iWhisky.szWhisky[giWhisky], "Ballantines");
       }
       
       iCount_Whisky++;
@@ -376,6 +396,8 @@ void vDN_Whisky(Total *iBebidaWhisky) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
         iBebidaWhisky->iWhisky.iValor_Whisky[giWhisky] += iTotAcumula[i];
+         iBebidaWhisky->iWhisky.iQuantidade[giWhisky] = iContador;
+        strcpy(iBebidaWhisky->iWhisky.szWhisky[giWhisky], "Ballantines 1L");
       }
       
       iCount_Whisky++;
@@ -390,6 +412,8 @@ void vDN_Whisky(Total *iBebidaWhisky) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
         iBebidaWhisky->iWhisky.iValor_Whisky[giWhisky] += iTotAcumula[i];
+         iBebidaWhisky->iWhisky.iQuantidade[giWhisky] = iContador;
+        strcpy(iBebidaWhisky->iWhisky.szWhisky[giWhisky], "Jack Daniels Tenessee");
       }
       
       iCount_Whisky++;
@@ -404,6 +428,8 @@ void vDN_Whisky(Total *iBebidaWhisky) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
         iBebidaWhisky->iWhisky.iValor_Whisky[giWhisky] += iTotAcumula[i];
+         iBebidaWhisky->iWhisky.iQuantidade[giWhisky] = iContador;
+        strcpy(iBebidaWhisky->iWhisky.szWhisky[giWhisky], "Jack Daniels HONEY");
       }
       
       iCount_Whisky++;
@@ -418,6 +444,8 @@ void vDN_Whisky(Total *iBebidaWhisky) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
         iBebidaWhisky->iWhisky.iValor_Whisky[giWhisky] += iTotAcumula[i];
+         iBebidaWhisky->iWhisky.iQuantidade[giWhisky] = iContador;
+        strcpy(iBebidaWhisky->iWhisky.szWhisky[giWhisky], "Jack Daniels FIRE");
       }
       
       iCount_Whisky++;
@@ -432,6 +460,8 @@ void vDN_Whisky(Total *iBebidaWhisky) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
         iBebidaWhisky->iWhisky.iValor_Whisky[giWhisky] += iTotAcumula[i];
+         iBebidaWhisky->iWhisky.iQuantidade[giWhisky] = iContador;
+        strcpy(iBebidaWhisky->iWhisky.szWhisky[giWhisky], "Jack Daniels APPLE");
       }
       
       iCount_Whisky++;
@@ -469,7 +499,9 @@ void vDN_Gin(Total *iBebidaGin) {
       for(i = 0; i <= iCount_Gin; i++) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
-       iBebidaGin->iGin.iValor_Gin[giGin] = iTotAcumula[i];
+        iBebidaGin->iGin.iValor_Gin[giGin] = iTotAcumula[i];
+        iBebidaGin->iGin.iQuantidade[giGin] = iContador;
+        strcpy(iBebidaGin->iGin.szGin[giGin], "Tanqueray");
       }
 
       iCount_Gin++;
@@ -484,6 +516,8 @@ void vDN_Gin(Total *iBebidaGin) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
         iBebidaGin->iGin.iValor_Gin[giGin] += iTotAcumula[i];
+        iBebidaGin->iGin.iQuantidade[giGin] = iContador;
+        strcpy(iBebidaGin->iGin.szGin[giGin], "Tanqueray Sevilla");
       }
       
       iCount_Gin++;
@@ -498,6 +532,8 @@ void vDN_Gin(Total *iBebidaGin) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
         iBebidaGin->iGin.iValor_Gin[giGin] += iTotAcumula[i];
+        iBebidaGin->iGin.iQuantidade[giGin] = iContador;
+        strcpy(iBebidaGin->iGin.szGin[giGin], "Beefeater Dry");
       }
       
       iCount_Gin++;
@@ -512,6 +548,8 @@ void vDN_Gin(Total *iBebidaGin) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
         iBebidaGin->iGin.iValor_Gin[giGin] += iTotAcumula[i];
+        iBebidaGin->iGin.iQuantidade[giGin] = iContador;
+        strcpy(iBebidaGin->iGin.szGin[giGin], "Gordon'S Classico");
       }
       
       iCount_Gin++;
@@ -526,6 +564,8 @@ void vDN_Gin(Total *iBebidaGin) {
         iTotAcumula[i] = iPreco[i] * iContador;
         printf(" TOTAL: %d Reais\n\n",iTotAcumula[i]);
         iBebidaGin->iGin.iValor_Gin[giGin] += iTotAcumula[i];
+        iBebidaGin->iGin.iQuantidade[giGin] = iContador;
+        strcpy(iBebidaGin->iGin.szGin[giGin], "Gordon'S Pink");
       }
       
       iCount_Gin++;
@@ -539,35 +579,45 @@ int iDN_ConfirmaTransacao(void) {
   char szResposta[16];
   int iRet = 0;
 
-  printf(" DESEJA FINALIZAR A VENDA: \n");
-  printf(" CONFIRME: (S|N): ");
-  scanf("%s",&szResposta);
+do {
+    printf(" DESEJA FINALIZAR A VENDA: \n");
+    printf(" CONFIRME: (S|N): ");
+    scanf("%s",&szResposta);
 
-  iRet = strcmp(ENTRADAVALIDADA, szResposta);
+    iRet = strcmp(ENTRADAVALIDADA, szResposta);
 
-  if(iRet == 0)
-    iRet = 1;
-  else
-    iRet = 0;
+    if(iRet == 0)
+      iRet = 1;
+    else if(strcmp(ENTRADAPROIBIDA, szResposta) == 0)
+      iRet = 0;
+    else
+      iRet = 2;
 
-   return iRet;
+  } while (iRet == 2);
+
+  return iRet;
+
 }
+
 
 int iDN_TransacaoCerveja(Total *iBebidaCerveja) {
 	int iSoma = 0;
   int j = 0;
 
-	printf("\n DEPARTAMENTO - BEBIDA ALCOOLICA: (CERVEJA) \n\n");
-
+	printf("\n DEPARTAMENTO - BEBIDA ALCOOLICA: (CERVEJA) \n");
+  
   for(j = 0; j<=8; j++) {
     if(iBebidaCerveja->iCerveja.iValor_Cerveja[j] > 1) {
-      printf(" PRODUTO %d: %.2d Reais\n",j+1, iBebidaCerveja->iCerveja.iValor_Cerveja[j]);
+      printf(" PEDIDO %d: \n", j+1);
+      printf(" PRODUTO: %d Unidades de %s \n", iBebidaCerveja->iCerveja.iQuantidade[j],
+      iBebidaCerveja->iCerveja.szCerveja[j]);
+      printf(" VALOR: %.2d Reais\n", iBebidaCerveja->iCerveja.iValor_Cerveja[j]);
     }
   }
 
   for(j = 0; j <=8; j++)
     iSoma += iBebidaCerveja->iCerveja.iValor_Cerveja[j];
-  printf("\n Soma total: %.2d Reais\n",iSoma);
+  printf("\n SOMA FINAL DO PEDIDO: %.2d Reais\n",iSoma);
 
 }
 
@@ -579,13 +629,16 @@ int iDN_TransacaoWhisky(Total *iBebidaWhisky) {
 
   for(j = 0; j<=8; j++) {
     if(iBebidaWhisky->iWhisky.iValor_Whisky[j] > 1) {
-      printf(" PRODUTO %d: %.2d Reais\n",j+1, iBebidaWhisky->iWhisky.iValor_Whisky[j]);
+      printf(" PEDIDO %d: \n", j+1);
+      printf(" PRODUTO: %d Unidades de %s \n", iBebidaWhisky->iWhisky.iQuantidade[j]),
+      iBebidaWhisky->iWhisky.szWhisky[j];
+      printf(" VALOR: %.2d Reais\n", iBebidaWhisky->iWhisky.iValor_Whisky[j]);
     }
   }
 
   for(j = 0; j <=8; j++)
     iSoma += iBebidaWhisky->iWhisky.iValor_Whisky[j];
-  printf("\n Soma total: %.2d Reais\n",iSoma);
+  printf("\n SOMA FINAL DO PEDIDO: %.2d Reais\n",iSoma);
 
 }
 
@@ -597,12 +650,35 @@ int iDN_TransacaoGin(Total *iBebidaGin) {
 
   for(j = 0; j<=8; j++) {
     if(iBebidaGin->iGin.iValor_Gin[j] > 1) {
-      printf(" PRODUTO %d: %.2d Reais\n",j+1, iBebidaGin->iGin.iValor_Gin[j]);
+      printf(" PEDIDO %d: \n", j+1);
+      printf(" PRODUTO: %d Unidades de %s \n", iBebidaGin->iGin.iQuantidade[j]),
+      iBebidaGin->iGin.szGin[j];
+      printf(" VALOR: %.2d Reais\n", iBebidaGin->iGin.iValor_Gin[j]);
+      
     }
   }
 
   for(j = 0; j <=8; j++)
     iSoma += iBebidaGin->iGin.iValor_Gin[j];
-  printf("\n Soma total: %.2d Reais\n",iSoma);
+  printf("\n SOMA FINAL DO PEDIDO: %.2d Reais\n",iSoma);
+
+}
+
+int iDN_FinalTransacao(Total *total) {
+	int iSoma = 0;
+  int j = 0;
+
+  for(j = 0; j <=8; j++) {
+    if(total->iCerveja.iValor_Cerveja[j] > 0 )
+      iSoma += total->iCerveja.iValor_Cerveja[j];
+
+    if(total->iWhisky.iValor_Whisky[j] > 0)
+      iSoma += total->iWhisky.iValor_Whisky[j];
+
+    if(total->iGin.iValor_Gin[j] > 0)
+      iSoma += total->iGin.iValor_Gin[j]; 
+  }
+
+  printf("\n SOMA FINAL DA VENDA: %.2d Reais\n",iSoma);
 
 }

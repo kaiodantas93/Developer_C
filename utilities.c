@@ -18,22 +18,24 @@ int main() {
   memset(&total, 0, sizeof(Total));
 
   do {
-    vVerifAge(&cliente);
+
+    if(iRet == 0)
+      vVerifAge(&cliente);
 
     printf(" CONFIRME: (S|N): ");
     scanf("%s", &szResposta);
+
+    iRet = strcmp(ENTRADAVALIDADA, szResposta);
+
+    if(iRet == 0)
+      iRet = 1;
+    else if(strcmp(ENTRADAPROIBIDA, szResposta) == 0)
+      iRet = 0;
+    else
+      iRet = 2;
+
+  } while (iRet == 2 || iRet == 0);
  
-    if(strcmp(ENTRADAPROIBIDA, szResposta) == 0)
-     continue;
-    else if(strcmp(ENTRADAVALIDADA, szResposta) == 0)
-     break;
-    else {
-     printf(" CONFIRME COM: (S|N): ");
-     continue;
-    }
-
-   } while(strcmp(ENTRADAVALIDADA, szResposta));
-
    if (iValida(&cliente))
      iVerifica = 1;
    else
@@ -79,6 +81,8 @@ int main() {
   
    if (iGin)
     iDN_TransacaoGin(&total);
+
+    iDN_FinalTransacao(&total);
 
    return 0;
 }
