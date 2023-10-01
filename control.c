@@ -4,7 +4,6 @@
 #include <ctype.h>
 #include <time.h>
 #include "control.h"
-#include "utilities.h"
 
 struct tm *atual;
 DATA date;
