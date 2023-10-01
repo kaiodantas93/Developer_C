@@ -5,8 +5,9 @@
 #include <time.h>
 
 #define IDADE 18
-#define ENTRADAPROIBIDA 'N'
-#define ENTRADAVALIDADA 'S'
+#define ENTRADAPROIBIDA "N"
+#define ENTRADAVALIDADA "S"
+
 
 typedef struct DATA {
 int iDay;
@@ -22,11 +23,31 @@ typedef struct {
   int iCalcuYear;
 }Cliente;
 
+
 typedef struct {
-  int iCerveja[128];
-  int iWhisky[64];
-  int iGin[64];
+  int iValor_Cerveja[128];
+  char szCerveja[128][128];
+  int iQuantidade[128];
+}iBebidaCerveja;
+
+typedef struct {
+  int iValor_Whisky[128];
+  char szWhisky[128][128];
+  int iQuantidade[128];
+}iBebidaWhisky;
+
+typedef struct {
+  int iValor_Gin[128];
+  char szGin[128][128];
+  int iQuantidade[128];
+}iBebidaGin;
+
+typedef struct {
+  iBebidaCerveja iCerveja;
+  iBebidaWhisky iWhisky;
+  iBebidaGin iGin;
 }Total;
+
 
 typedef enum {
   CERVEJA = 120,
@@ -54,16 +75,56 @@ typedef enum {
   BOHEMIA_PRICE = 5,
   ITAIPAVA_PRICE = 3,
   SCHIN_PRICE = 3
-}EnumPreco;
+}EnumPrecoCerveja;
+
+typedef enum {
+  RED_LABEL = 1,
+  RED1L_LABEL = 2,
+  BALLANTINES = 3,
+  BALLANTINES_1L = 4,
+  JACK_TENESSE = 5,
+  JACK_HONEY = 6,
+  JACK_FIRE = 7,
+  JACK_APPLE = 8
+}EnumVariedade_Whisky;
+
+typedef enum {
+  RED_LABEL_PRICE = 65,
+  RED1L_LABEL_PRICE = 78,
+  BALLANTINES_PRICE = 55,
+  BALLANTINES_1L_PRICE = 63,
+  JACK_TENESSE_PRICE = 130,
+  JACK_HONEY_PRICE = 139,
+  JACK_FIRE_PRICE = 139,
+  JACK_APPLE_PRICE = 145
+}EnumPrecoWhisky;
+
+typedef enum {
+ TANQUERAY = 1,
+  TANQUERAY_SEVILLA = 2,
+  BEEFEATER_DRY = 3,
+  GORDON_CLASSIC = 4,
+  GORDON_PINK = 5
+}EnumVariedade_Gin;
+
+typedef enum {
+  TANQUERAY_PRICE = 65,
+  TANQUERAY_SEVILLA_PRICE = 78,
+  BEEFEATER_DRY_PRICE = 55,
+  GORDON_CLASSIC_PRICE = 63,
+  GORDON_PINK_PRICE = 130
+}EnumPrecoGin;
+
 
 int iValida(Cliente *k);
 void vVerifAge(Cliente *p);
 int iDept(void);
-<<<<<<< HEAD
-int iDN_TipoEscolha(void);
-void vDN_Cerveja(void);
-void vDN_TransacaoCerveja(void);
+void vDN_Cerveja(Total *myTotal);
+void vDN_Whisky(Total *myTotal);
+void vDN_Gin(Total *myTotal);
 int iQuant(int iCount);
 int iCodigo(void);
-void vDN_Cerveja(void);
 int iDN_ConfirmaTransacao(void);
+int iDN_TransacaoCerveja(Total *iBebidaCerveja);
+int iDN_TransacaoWhisky(Total *iBebidaWhisky);
+int iDN_TransacaoGin(Total *iBebidaGin);

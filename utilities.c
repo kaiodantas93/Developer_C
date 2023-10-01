@@ -8,98 +8,78 @@
 
 int main() {
   Cliente cliente;
-  char szResposta;
+  char szResposta[2];
   Total total;
-  char szResposta[16];
   int iRet = 0;
   int iVerifica = 0;
-  int iCCerveja = 0;
+  int iCerveja = 0;
+  int iWhisky = 0;
+  int iGin = 0;
+
+  memset(&total, 0, sizeof(Total));
 
   do {
     vVerifAge(&cliente);
 
     printf(" CONFIRME: (S|N): ");
-    scanf("%s",&szResposta);
+    scanf("%s", &szResposta);
  
-    if(ENTRADAPROIBIDA == szResposta);
+    if(strcmp(ENTRADAPROIBIDA, szResposta) == 0)
      continue;
-    if(ENTRADAVALIDADA == szResposta);
+    else if(strcmp(ENTRADAVALIDADA, szResposta) == 0)
      break;
+    else {
+     printf(" CONFIRME COM: (S|N): ");
+     continue;
+    }
 
-   } while(ENTRADAVALIDADA == szResposta);
-  
-    if(strcmp(ENTRADAPROIBIDA, szResposta));
-	    continue;
-    if(strcmp(ENTRADAVALIDADA, szResposta));
-	    break;
-
-   } while(strcmp(ENTRADAVALIDADA,szResposta));
+   } while(strcmp(ENTRADAVALIDADA, szResposta));
 
    if (iValida(&cliente))
      iVerifica = 1;
    else
      abort();
-
-  while(iVerifica) {
-
+ 
+  while(iVerifica) {    
+ 
     iRet = iDept();
 
     switch (iRet) {
 
       case 1:
-        vDN_Cerveja();
-        iCCerveja = 1;
+        vDN_Cerveja(&total);
+        iCerveja = 1;
         break;
 
       case 2:
-        vDN_Cerveja();
-        iCCerveja = 1;
+        vDN_Whisky(&total);
+        iWhisky = 1;
         break;
 
       case 3:
-        vDN_Cerveja();
-        iCCerveja = 1;
+        vDN_Gin(&total);
+        iGin = 1;
         break;
 
       default:
         break;
     }
 
-    /*if (vDN_ConfirmaTransacao()) {
-      iVerifica = -1;
-      break;
-    }*/
-
-  }
-
-  if (iCCerveja) {
-    printf("\n DEPARTAMENTO - BEBIDA ALCOOLICA: (CERVEJA) \n\n");
-  }
-   while(iVerifica) {
-
-    iRet = iDept();
-
-   switch (iRet) {
-
-       case 1:
-         vDN_Cerveja();
-         iCCerveja = 1;
-         break;
-
-       default:
-         break;
-   }
-
    if (iDN_ConfirmaTransacao()) {
      iVerifica = -1;
      break;
    }
 
-}
-   if (iCCerveja) {
-     printf("\n DEPARTAMENTO - BEBIDA ALCOOLICA: (CERVEJA) \n\n");
+  }
+  
+   if (iCerveja)
      iDN_TransacaoCerveja(&total);
-   }
+
+   if (iWhisky)
+    iDN_TransacaoWhisky(&total);
+  
+   if (iGin)
+    iDN_TransacaoGin(&total);
 
    return 0;
 }
