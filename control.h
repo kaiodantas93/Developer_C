@@ -25,27 +25,27 @@ typedef struct {
 
 
 typedef struct {
-  int iValor_Cerveja[128];
-  char szCerveja[128][128];
-  int iQuantidade[128];
+  int iValor_Cerveja;
+  char szCerveja[128];
+  int iQuantidade;
 }iBebidaCerveja;
 
 typedef struct {
-  int iValor_Whisky[128];
-  char szWhisky[128][128];
-  int iQuantidade[128];
+  int iValor_Whisky;
+  char szWhisky[128];
+  int iQuantidade;
 }iBebidaWhisky;
 
 typedef struct {
-  int iValor_Gin[128];
-  char szGin[128][128];
-  int iQuantidade[128];
+  int iValor_Gin;
+  char szGin[128];
+  int iQuantidade;
 }iBebidaGin;
 
 typedef struct {
-  iBebidaCerveja iCerveja;
-  iBebidaWhisky iWhisky;
-  iBebidaGin iGin;
+  iBebidaCerveja iCerveja[10];
+  iBebidaWhisky iWhisky[10];
+  iBebidaGin iGin[10];
 }Total;
 
 
@@ -119,7 +119,7 @@ typedef enum {
 int iValida(Cliente *k);
 void vVerifAge(Cliente *p);
 int iDept(void);
-void vDN_Cerveja(Total *myTotal);
+void vDN_Cerveja(Total *TotalBebidas);
 void vDN_Whisky(Total *myTotal);
 void vDN_Gin(Total *myTotal);
 int iQuant(int iCount);

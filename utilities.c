@@ -23,7 +23,7 @@ int main() {
       vVerifAge(&cliente);
 
     printf(" CONFIRME: (S|N): ");
-    scanf("%s", &szResposta);
+    scanf("%1s", &szResposta);
 
     iRet = strcmp(ENTRADAVALIDADA, szResposta);
 
@@ -82,7 +82,8 @@ int main() {
    if (iGin)
     iDN_TransacaoGin(&total);
 
-    iDN_FinalTransacao(&total);
+  iDN_FinalTransacao(&total);
+
 
    return 0;
 }
